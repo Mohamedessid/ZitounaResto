@@ -3,7 +3,7 @@ import { FaPhone } from "react-icons/fa";
 import { FiMenu } from "react-icons/fi";
 import { ImLocation } from "react-icons/im";
 import { MdOutlineMailOutline } from "react-icons/md";
-import Logo from "../images/logo.svg";
+import logo from "../images/logo.svg";
 import { Link, useNavigate } from "react-router-dom";
 
 export default function Navbar() {
@@ -50,7 +50,7 @@ export default function Navbar() {
         <div className="flex items-center space-x-4">
           <img
             className="w-40 md:w-52 h-auto object-contain transform hover:scale-105 transition duration-500"
-            src={Logo}
+            src={logo}
             alt="zitouna Logo"
           />
         </div>

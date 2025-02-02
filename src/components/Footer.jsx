@@ -1,5 +1,5 @@
 import { FaFacebook, FaInstagram } from 'react-icons/fa'; 
-import Logo from "../images/logo.svg";
+import logo from "../images/logo.svg";
 
 export default function Footer() {
   return (
@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="w-full md:w-1/4 text-center md:text-left mb-6 md:mb-0">
         <img
           className="w-40 md:w-52 h-auto object-contain transform hover:scale-105 transition duration-500"
-          src={Logo}
+          src={logo}
           alt="zitouna Logo"
         />
       </div>
