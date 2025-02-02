@@ -7,6 +7,9 @@ export default defineConfig({
   optimizeDeps: {
     include: ["react-icons/fa", "react-icons/fi"],
   },
+  build: {
+    outDir: 'dist', // Ensure build outputs to 'dist' folder
+    assetsDir: 'assets', // Optional: for assets to be bundled under an assets directory
+  },
+  base: '/', // Ensure base path is correctly set for production (important for deployments like Netlify)
 })
-
-
