@@ -1,5 +1,6 @@
 import { useState } from "react";
-import logo from "../images/logo.svg";
+import Logo from '/assets/images/logo.svg';
+
 export default function Reservation() {
   const [formData, setFormData] = useState({
     name: "",
@@ -24,7 +25,7 @@ export default function Reservation() {
       {/* Logo */}
       <div className="absolute top-6 left-1/2 transform -translate-x-1/2 ">
         <img
-          src={logo} // Replace with your logo URL or path
+          src={Logo} // Replace with your logo URL or path
           alt="Logo"
           className="w-50" // Adjust size as needed
         />
