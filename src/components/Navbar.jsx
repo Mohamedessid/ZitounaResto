@@ -1,114 +1,51 @@
-import { useState } from "react";
-import { FaPhone } from "react-icons/fa";
-import { FiMenu } from "react-icons/fi";
-import { ImLocation } from "react-icons/im";
-import { MdOutlineMailOutline } from "react-icons/md";
-import Logo from '/assets/images/logo.svg';
+import { FaFacebook, FaInstagram } from 'react-icons/fa'; 
 
-import { Link, useNavigate } from "react-router-dom";
-
-export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
-  const navigate = useNavigate(); // For programmatic navigation
-
-  const handleScroll = (id) => {
-    setIsOpen(false); // Close mobile menu
-    const section = document.getElementById(id);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
+export default function Footer() {
   return (
-    <header className="bg-[#0c0c0c] text-white">
-      {/* Top Bar */}
-      <div className="flex flex-col md:flex-row justify-between items-center px-6 py-2 border-b border-gray-700 space-y-2 md:space-y-0">
-        <span className="flex items-center space-x-3">
-          <ImLocation />
-          <span className="text-sm md:text-base">
-            Route de Soukra km 1, Sfax, Tunisie (résidence Yesmine)
-          </span>
-        </span>
-
-        <span className="flex items-center space-x-3">
-          <MdOutlineMailOutline />
-          <span className="text-sm md:text-base">zitouna.restaurant@gmail.com</span>
-        </span>
-
-        <div className="flex items-center space-x-4">
-          <button
-            onClick={() => navigate("/reservation")}
-            className="px-6 md:px-10 py-2 md:py-3 bg-white text-black font-semibold hover:bg-[#2f762f] hover:text-white transition duration-300 text-sm md:text-base"
-          >
-            RÉSERVER UNE TABLE
-          </button>
-        </div>
+    <footer className="bg-[#0c0c0c] text-white py-12 px-6 md:px-20 flex flex-col md:flex-row items-center justify-between space-y-8 md:space-y-0">
+      <div className="w-full md:w-1/4 text-center md:text-left mb-6 md:mb-0">
+        {/* Correct path to the logo */}
+        <img
+          className="w-40 md:w-52 h-auto object-contain transform hover:scale-105 transition duration-500"
+          src="/assets/images/logo.svg"
+          alt="zitouna Logo"
+        />
       </div>
 
-      {/* Navbar */}
-      <nav className="flex justify-between items-center px-6 py-3">
-        {/* Logo Section */}
-        <div className="flex items-center space-x-4">
-          <img
-            className="w-40 md:w-52 h-auto object-contain transform hover:scale-105 transition duration-500"
-            src={Logo}
-            alt="zitouna Logo"
-          />
+      <div className="w-full md:w-2/3 flex flex-col md:flex-row md:justify-between space-y-8 md:space-y-0">
+        
+        <div className="text-center md:text-left w-full md:w-1/3">
+          <h2 className="text-xl font-semibold text-[#c2a774] mb-2">Follow Us</h2>
+          <div className="w-16 h-1 bg-[#c2a774] mx-auto md:mx-0 mb-4"></div>
+          <div className="flex justify-center md:justify-start space-x-6">
+            <a href="https://www.facebook.com/restaurantzitouna2" target="_blank" rel="noopener noreferrer">
+              <FaFacebook size={24} />
+            </a>
+            <a href="https://www.instagram.com/restaurant_zitouna2/" target="_blank" rel="noopener noreferrer">
+              <FaInstagram size={24} />
+            </a>
+          </div>
         </div>
-
-        {/* Menu */}
-        <ul className="hidden md:flex space-x-8 text-lg cursor-pointer">
-          <li className="hover:text-[#2f762f] transition duration-300">
-            <Link to="/">HOME</Link>
-          </li>
-          <li className="hover:text-[#2f762f] transition duration-300" onClick={() => handleScroll("about")}>
-            ABOUT US
-          </li>
-          <li className="hover:text-[#2f762f] transition duration-300">
-            <Link to="/menu">MENU</Link> {/* Navigates to Menu Page */}
-          </li>
-          <li className="hover:text-[#2f762f] transition duration-300" onClick={() => handleScroll("gallery")}>
-            GALLERY
-          </li>
-        </ul>
-
-        {/* Phone */}
-        <div className="hidden md:flex items-center space-x-2 text-[#2f762f]">
-          <FaPhone className="text-xl" />
-          <div>
-            <p className="text-xs text-white">Phone Call Us</p>
-            <p className="text-lg hover:text-white transition duration-300">
-              +216 20 513 513
-            </p>
+        
+        <div className="text-center md:text-left w-full md:w-1/3">
+          <h2 className="text-xl font-semibold text-[#c2a774] mb-2">Contact Us</h2>
+          <div className="w-16 h-1 bg-[#c2a774] mx-auto md:mx-0 mb-4"></div>
+          <div className="text-gray-300">
+            <p>Adresse : <span className="font-bold">Route de Soukra km 1, Sfax, Tunisie</span></p>
+            <p>Téléphone : <span className="font-bold">+216 20 513 513</span></p>
           </div>
         </div>
 
-        {/* Mobile Menu Button */}
-        <button
-          className="md:hidden text-2xl text-[#2f762f] hover:text-white transition duration-300"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          <FiMenu />
-        </button>
-      </nav>
-
-      {/* Mobile Menu */}
-      {isOpen && (
-        <ul className="md:hidden bg-[#0c0c0c] text-white text-center py-4">
-          <li className="py-2 border-b border-gray-700 hover:text-[#2f762f] transition duration-300">
-            <Link to="/" onClick={() => setIsOpen(false)}>HOME</Link>
-          </li>
-          <li className="py-2 border-b border-gray-700 hover:text-[#2f762f] transition duration-300" onClick={() => handleScroll("about")}>
-            ABOUT US
-          </li>
-          <li className="py-2 border-b border-gray-700 hover:text-[#2f762f] transition duration-300">
-            <Link to="/menu" onClick={() => setIsOpen(false)}>MENU</Link>
-          </li>
-          <li className="py-2 border-b border-gray-700 hover:text-[#2f762f] transition duration-300" onClick={() => handleScroll("gallery")}>
-            GALLERY
-          </li>
-        </ul>
-      )}
-    </header>
+        <div className="text-center md:text-left w-full md:w-1/3">
+          <h2 className="text-xl font-semibold text-[#c2a774] mb-2">Heures d'ouverture</h2>
+          <div className="w-16 h-1 bg-[#c2a774] mx-auto md:mx-0 mb-4"></div>
+          <div className="text-gray-300 mb-4">
+            <p>Lundi - Vendredi : <span className="font-bold">9:00 AM - 10:00 PM</span></p>
+            <p>Samedi : <span className="font-bold">10:00 AM - 11:00 PM</span></p>
+            <p>Dimanche : <span className="font-bold">5:00 PM - 11:00 PM</span></p>
+          </div>
+        </div>
+      </div>
+    </footer>
   );
 }

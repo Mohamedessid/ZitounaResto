@@ -2,13 +2,13 @@ import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { Link } from "react-router-dom"; // Import Link for routing
 
-// Import images directly from the src folder
-import dish1 from '../images/dish1.jpg';
-import dish2 from '../images/dish2.jpg';
-import dish3 from '../images/dish3.jpg';
-import dish4 from '../images/dish4.jpg';
-
-const images = [dish1, dish2, dish3, dish4];
+// Image URLs from the public/assets/images folder
+const images = [
+  "/assets/images/dish1.jpg",
+  "/assets/images/dish2.jpg",
+  "/assets/images/dish3.jpg",
+  "/assets/images/dish4.jpg",
+];
 
 export default function CarouselSection() {
   const titleRef = useRef(null);
@@ -17,7 +17,7 @@ export default function CarouselSection() {
 
   // Function to cycle through images with a transition
   const changeImage = () => {
-    gsap.to(".background", { opacity: 1, duration:2, onComplete: () => {
+    gsap.to(".background", { opacity: 1, duration: 2, onComplete: () => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
       gsap.fromTo(".background", { opacity: 0.5 }, { opacity: 1, duration: 1 });
     }});
@@ -64,14 +64,16 @@ export default function CarouselSection() {
           Des plats Unique <br /> une ambiance magique
         </h2>
         <p ref={textRef} className="mt-4 text-lg md:text-xl max-w-2xl mx-auto">
-        Découvrez notre menu ! Des plats frais et savoureux pour tous les goûts. Laissez-vous tenter et régalez-vous. Bon appétit ! 🍽️
+          Découvrez notre menu ! Des plats frais et savoureux pour tous les goûts. Laissez-vous tenter et régalez-vous. Bon appétit ! 🍽️
         </p>
-<br />
+        <br />
         {/* Button to lead to the menu */}
-        <Link to="/menu" className="mt-6 px-6 py-3 bg-white text-black font-bold rounded-full text-lg hover:bg-[#2f762f] hover:text-white transition duration-300">
-  View Menu
-</Link>
-
+        <Link
+          to="/menu"
+          className="mt-6 px-6 py-3 bg-white text-black font-bold rounded-full text-lg hover:bg-[#2f762f] hover:text-white transition duration-300"
+        >
+          View Menu
+        </Link>
       </div>
     </section>
   );
